@@ -51,3 +51,7 @@ plt.axvline(obs_diff, color='r')
 plt.savefig('samplemeans.png')
 plt.show()
 plt.clf()
+
+#Calculate a 95% confidence interval
+confintv = ((np.percentile(diffs, 2.5)), (np.percentile(diffs, 97.5)))
+print(confintv)
