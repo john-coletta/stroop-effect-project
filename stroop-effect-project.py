@@ -59,3 +59,19 @@ print(confintv)
 #Now let't run a t-test on our dataset. This must be a paired t-test
 t_stat, p_value = stats.ttest_rel(df['Congruent'], df['Incongruent'])
 print(t_stat, p_value)
+
+'''Because of our above analysis, we decide to modify our hypothesis and
+test that below. We now have the null as the incongruent test being
+completed as quick or quicker than the congruent one. Therefore our 
+alternative is that the congruent is completed quicker, on average.'''
+
+#Compute the p-value for our new null
+nullmeans = np.random.normal(0,np.std(diffs),10000)
+
+plt.hist(nullmeans, label='The Null')
+plt.hist(diffs, color='r', label='Bootstrapped')
+plt.title('Distribution of Means Under the Null \n Compared to Bootstrapped Data')
+plt.legend(loc=4)
+plt.savefig('nullvsbootstraphistogram.png')
+plt.show()
+plt.clf()
