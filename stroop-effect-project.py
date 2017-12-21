@@ -16,3 +16,13 @@ plt.title('Time to Complete Congruent Test')
 plt.savefig('congruentplot.png')
 plt.show()
 plt.clf()
+
+#Now the incongruent data
+plt.scatter(range(1, df.shape[0] + 1), df['Incongruent'])
+plt.axhline(df['Incongruent'].mean(), color='r')
+plt.xlabel('Task Number')
+plt.ylabel('Time (s)')
+plt.title('Time to Complete Incongruent Test')
+plt.savefig('incongruentplot.png')
+plt.show()
+plt.clf()
