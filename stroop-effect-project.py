@@ -75,3 +75,6 @@ plt.legend(loc=4)
 plt.savefig('nullvsbootstraphistogram.png')
 plt.show()
 plt.clf()
+
+p_value2 = (obs_diff > nullmeans).mean()
+print(p_value2)
