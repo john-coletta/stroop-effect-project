@@ -26,3 +26,20 @@ plt.title('Time to Complete Incongruent Test')
 plt.savefig('incongruentplot.png')
 plt.show()
 plt.clf()
+
+#Let's perform some statistical analysis
+#First we will use bootstrapping to create an array of sample means
+diffs = []
+conmeans = []
+inconmeans = []
+for _ in range(10000):
+    congruent_mean = df['Congruent'].sample(df['Congruent'].shape[0], replace=True).mean()
+    incongruent_mean = df['Incongruent'].sample(df['Incongruent'].shape[0], replace=True).mean()
+    diff = (congruent_mean - incongruent_mean)
+    conmeans.append(congruent_mean)
+    inconmeans.append(incongruent_mean)
+    diffs.append(diff)
+
+diffs = np.asarray(diffs)
+conmeans = np.asarray(conmeans)
+inconmeans = np.asarray(inconmeans)
