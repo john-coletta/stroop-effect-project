@@ -43,3 +43,11 @@ for _ in range(10000):
 diffs = np.asarray(diffs)
 conmeans = np.asarray(conmeans)
 inconmeans = np.asarray(inconmeans)
+
+# Now let's plot the data to confirm it looks normal
+obs_diff = df['Congruent'].mean() - df['Incongruent'].mean()
+plt.hist(diffs)
+plt.axvline(obs_diff, color='r')
+plt.savefig('samplemeans.png')
+plt.show()
+plt.clf()
