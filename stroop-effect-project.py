@@ -55,3 +55,7 @@ plt.clf()
 #Calculate a 95% confidence interval
 confintv = ((np.percentile(diffs, 2.5)), (np.percentile(diffs, 97.5)))
 print(confintv)
+
+#Now let't run a t-test on our dataset. This must be a paired t-test
+t_stat, p_value = stats.ttest_rel(df['Congruent'], df['Incongruent'])
+print(t_stat, p_value)
